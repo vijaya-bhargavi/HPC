@@ -21,11 +21,17 @@
 #define EPSILON 0.1
 
 using namespace std;
+// char * x;  
+// char ** x2;
+// char * x3[];
+// int * 
+// int []
 
-int main() {
+// filename, 4
+int main(int argc, char *argv[]) {
   double time_serial, time_start = 0.0;
   double *a, *b;
-
+  int n = stoi(argv[1]); 
   // Allocate memory for the vectors as 1-D arrays
   a = new double[N];
   b = new double[N];
@@ -65,7 +71,7 @@ int main() {
       alpha_parallel += a[i] * b[i];
     }
   }
-  cout << "       " << alpha_parallel << endl;
+  //cout << "       " << alpha_parallel << endl;
   time_red = wall_time() - time_start;
   time_start = wall_time();
   double critical_sum = 0.0;
@@ -99,9 +105,9 @@ int main() {
     cerr << "Alpha not yet implemented correctly!\n";
     exit(1);
   }
-  cout << "Parallel dot product = " << alpha_parallel
-       << " time using reduction method = " << time_red
-       << " sec, time using critical method " << time_critical << " sec"
+  cout << "Parallel dot product = " << alpha_parallel << endl
+       << "Time using reduction method = " << time_red << endl
+       << "Time using critical method " << time_critical << " sec"
        << endl;
 
   // De-allocate memory
